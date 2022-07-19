@@ -1,0 +1,5 @@
+services:
+  NGINX:
+    build: ./NGINX
+  database:
+    build: ./databse
