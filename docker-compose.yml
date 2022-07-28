@@ -3,3 +3,5 @@ services:
     build: ./NGINX
   database:
     build: ./databse
+  wordpress:
+    build: ./wordpress
