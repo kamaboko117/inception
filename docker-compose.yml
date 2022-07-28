@@ -1,7 +1,9 @@
 services:
-  NGINX:
+  nginx:
     build: ./NGINX
   database:
-    build: ./databse
+    build: ./database
   wordpress:
     build: ./wordpress
+volumes:
+  DB:
