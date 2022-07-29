@@ -1,11 +1,8 @@
 FROM debian:buster
 
-RUN apt-get update
-RUN apt-get upgrade
-
-RUN apt-get install wget -y
-#somehow needed for apt-key
-RUN apt-get install gnupg -y
+RUN apt-get update && apt-get install wget -y \
+    #somehow needed for apt-key
+    gnupg
 
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN apt-get install php php-fpm -y
