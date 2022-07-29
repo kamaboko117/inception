@@ -1,12 +1,12 @@
 services:
   nginx:
-    build: ./NGINX
-  database:
-    build: ./database
+    build: ./requirements/nginx
+  mariadb:
+    build: ./requirements/mariadb
     volumes:
       - DB:/var/lib/mysql/
   wordpress:
-    build: ./wordpress
+    build: ./requirements/wordpress
     volumes:
       - wpdata:/data/
 volumes:
