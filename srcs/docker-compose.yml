@@ -3,7 +3,12 @@ services:
     build: ./NGINX
   database:
     build: ./database
+    volumes:
+      - DB:/var/lib/mysql/
   wordpress:
     build: ./wordpress
+    volumes:
+      - wpdata:/data/
 volumes:
   DB:
+  wpdata: 
