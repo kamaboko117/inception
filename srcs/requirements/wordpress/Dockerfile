@@ -19,6 +19,7 @@ RUN rm -f /var/www/latest.tar.gz
 #needed for php-fpm to bind listening socket
 RUN mkdir run/php
 
+COPY wp-config.php /var/www/html/wordpress
+
 #-F: force to stay on foreground. -R: run as root
 ENTRYPOINT [ "php-fpm7.3", "-F", "-R"] 
-# COPY wp-config /var/www/wordpress
