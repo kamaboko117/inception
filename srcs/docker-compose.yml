@@ -1,12 +1,4 @@
 services:
-  nginx:
-    build: ./requirements/nginx
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
 
   mariadb:
     build: ./requirements/mariadb
@@ -20,9 +12,24 @@ services:
         window: 120s
 
   wordpress:
+    depends_on:
+      - mariadb
     build: ./requirements/wordpress
     volumes:
-      - wpdata:/data/
+      - wpdata:/var/www/html
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  nginx:
+    depends_on:
+      - wordpress
+    build: ./requirements/nginx
+    ports:
+      - 443:443
     deploy:
       restart_policy:
         condition: on-failure
@@ -32,6 +39,9 @@ services:
         
 volumes:
   DB:
+    driver_opts:
+      device: /mnt/nfs/homes/asaboure/data
+    
   wpdata: 
 
   #nginx: openssl
