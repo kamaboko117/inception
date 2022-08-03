@@ -13,5 +13,7 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
 
 COPY nginx.conf etc/nginx/
 COPY default etc/nginx/sites-available/
-ENTRYPOINT [ "nginx", "-g" , "daemon off;" ]
+
 EXPOSE 443
+
+ENTRYPOINT [ "nginx", "-g" , "daemon off;" ]
