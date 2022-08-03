@@ -40,6 +40,7 @@ services:
 volumes:
   DB:
     driver_opts:
+      type: none
       device: /mnt/nfs/homes/asaboure/data
     
   wpdata: 
