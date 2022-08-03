@@ -6,7 +6,7 @@
 #    By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:20:20 by asaboure          #+#    #+#              #
-#    Updated: 2022/07/29 17:10:21 by asaboure         ###   ########.fr        #
+#    Updated: 2022/08/02 18:32:53 by asaboure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM		= rm -f
 
 all:
 	cd srcs;\
-	docker-compose build;\
+	docker-compose up;\
 
 clean:
 	 ${RM}
