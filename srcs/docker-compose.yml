@@ -40,8 +40,7 @@ services:
 volumes:
   DB:
     driver_opts:
-      type: none
-      device: home/asaboure/data
+      device: /home/asaboure/data
     
   wpdata: 
 
