@@ -41,7 +41,7 @@ volumes:
   DB:
     driver_opts:
       type: none
-      device: /mnt/nfs/homes/asaboure/data
+      device: home/asaboure/data
     
   wpdata: 
 
