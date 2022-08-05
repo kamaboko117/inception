@@ -40,9 +40,9 @@ services:
 volumes:
   DB:
     driver_opts:
-      device: /home/asaboure/data
+      device: /home/asaboure/data/mariadb
       type: 'none'
-    
+      o: 'bind'
   wpdata: 
 
   #nginx: openssl
