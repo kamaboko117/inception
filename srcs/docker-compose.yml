@@ -28,6 +28,8 @@ services:
     depends_on:
       - wordpress
     build: ./requirements/nginx
+    volumes:
+      - wpdata:/var/www/html
     ports:
       - 443:443
     deploy:
