@@ -43,7 +43,11 @@ volumes:
       device: /home/asaboure/data/mariadb
       type: 'none'
       o: 'bind'
-  wpdata: 
+  wpdata:
+      driver_opts:
+      device: /home/asaboure/data/wordpress
+      type: 'none'
+      o: 'bind'
 
   #nginx: openssl
   #rediriger traffic nginx vers wordpress php (port 9000)
