@@ -48,7 +48,7 @@ server {
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying index.php.
-		try_files $uri $uri/ /index.php$is_args$args;;
+		try_files $uri $uri/ /index.php$is_args$args;
 	}
 
 	# pass PHP scripts to FastCGI server
