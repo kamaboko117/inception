@@ -7,9 +7,11 @@ RUN apt-get update && apt-get install wget -y \
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list
 
+# php-mysql required by wordpress
 RUN apt-get update && apt-get install -y \
     php \
-    php-fpm
+    php-fpm \
+    php-mysql
 
 #get wordpress
 RUN wget http://wordpress.org/latest.tar.gz -P /var/www/
