@@ -44,7 +44,7 @@ volumes:
       type: 'none'
       o: 'bind'
   wpdata:
-      driver_opts:
+    driver_opts:
       device: /home/asaboure/data/wordpress
       type: 'none'
       o: 'bind'
