@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install wget -y \
 RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 
 RUN apt-get install -y \
-    php \
+    php7.3 \
+    php-mysqli \ 
     php-fpm
 
 #get wordpress

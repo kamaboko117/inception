@@ -12,18 +12,18 @@ services:
         window: 120s
 
   wordpress:
-    image: php:7-fpm
-    # depends_on:
-    #   - mariadb
-    # build: ./requirements/wordpress
-    # volumes:
-    #   - wpdata:/var/www/html
-    # deploy:
-    #   restart_policy:
-    #     condition: on-failure
-    #     delay: 5s
-    #     max_attempts: 3
-    #     window: 120s
+    # image: php:7-fpm
+    depends_on:
+      - mariadb
+    build: ./requirements/wordpress
+    volumes:
+      - wpdata:/var/www/html
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 
   nginx:
     depends_on:
