@@ -44,11 +44,13 @@ volumes:
   DB:
     driver_opts:
       device: /home/asaboure/data/mariadb
+      driver: 'local'
       type: 'none'
       o: 'bind'
   wpdata:
     driver_opts:
       device: /home/asaboure/data/wordpress
+      driver: 'local'
       type: 'none'
       o: 'bind'
 
