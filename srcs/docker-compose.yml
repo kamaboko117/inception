@@ -41,6 +41,7 @@ volumes:
   DB:
     driver_opts:
       device: /home/asaboure/data
+      type: 'none'
     
   wpdata: 
 
