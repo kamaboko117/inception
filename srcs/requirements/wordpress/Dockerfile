@@ -8,7 +8,7 @@ RUN wget -q https://packages.sury.org/php/apt.gpg -O- | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list
 
 RUN apt-get update && apt-get install -y \
-    php\ 
+    php \
     php-fpm
 
 #get wordpress
@@ -20,6 +20,7 @@ RUN rm -f /var/www/latest.tar.gz
 #needed for php-fpm to bind listening socket
 RUN mkdir run/php
 
+COPY fpm.conf etc/php/8.1/fpm/pool.d/www.conf
 COPY wp-config.php /var/www/html/wp-config.php
 
 EXPOSE 9000
