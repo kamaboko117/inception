@@ -21,5 +21,7 @@ RUN mkdir run/php
 
 COPY wp-config.php /var/www/html/wp-config.php
 
+EXPOSE 9000
+
 #-F: force to stay on foreground. -R: run as root
 ENTRYPOINT [ "php-fpm7.3", "-F", "-R"] 
