@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R 755 /var/www/*
+
 if [ ! -f /var/www/html/wp-config.php ]; then
     wget http://wordpress.org/latest.tar.gz -P /var/www/
     tar xfz /var/www/latest.tar.gz -C /var/www/
