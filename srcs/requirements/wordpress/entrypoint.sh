@@ -8,7 +8,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     rm -rf /var/www/html/*
     mv /var/www/wordpress/* /var/www/html/
     rm -f /var/www/latest.tar.gz
-    rm -f /var/www/wordpress
+    rm -rf /var/www/wordpress
     mv /var/www/wp-config.php /var/www/html/wp-config.php
     echo "done"
 fi
