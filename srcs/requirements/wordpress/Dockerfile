@@ -23,7 +23,7 @@ RUN rm -f /var/www/latest.tar.gz
 RUN mkdir run/php
 
 COPY fpm.conf etc/php/8.1/fpm/pool.d/www.conf
-COPY wp-config.php /var/www/html/wp-config.php
+COPY wp-config.php /var/www/html/
 
 EXPOSE 9000
 
