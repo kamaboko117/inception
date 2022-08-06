@@ -8,6 +8,8 @@ http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
 NGINX:
 we run nginx with the "daemon off" option to prevent it from killing itself in its creation process, which would in turn kill the containers. default website is configured so as to pass every .php request to wordpress at port 9000.
 
+https://stackoverflow.com/questions/72277348/docker-is-not-copying-file-on-a-shared-volume-during-build
+https://stackoverflow.com/questions/39082768/what-does-set-e-and-exec-do-for-docker-entrypoint-scripts
 wordpress+fpm:
 we configure fpm so as to listen to port 9000. we also run fpm with flags to prevent it from killing itself.
 

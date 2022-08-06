@@ -13,19 +13,15 @@ RUN apt-get update && apt-get install -y \
     php-fpm \
     php-mysql
 
-#get wordpress
-RUN wget http://wordpress.org/latest.tar.gz -P /var/www/
-RUN tar xfz /var/www/latest.tar.gz -C /var/www/
-RUN mv /var/www/wordpress /var/www/html
-RUN rm -f /var/www/latest.tar.gz
-
 #needed for php-fpm to bind listening socket
 RUN mkdir run/php
 
 COPY fpm.conf etc/php/8.1/fpm/pool.d/www.conf
-COPY wp-config.php /var/www/html/
+COPY entrypoint.sh /
+COPY wp-config.php /var/www/
 
 EXPOSE 9000
 
+ENTRYPOINT [ "entrypoint.sh" ]
 #-F: force to stay on foreground. -R: run as root
-ENTRYPOINT [ "php-fpm8.1", "-F", "-R"] 
+CMD [ "php-fpm8.1", "-F", "-R"] 
