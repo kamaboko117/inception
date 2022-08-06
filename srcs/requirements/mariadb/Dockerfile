@@ -10,6 +10,6 @@ EXPOSE 3306
 
 RUN mkdir /etc/mysql/mariadb.conf.d/conf
 
-COPY 50-server.cnf /etc/mysql/mariadb.conf.d/conf/
+COPY 50-server.cnf /etc/mysql/mariadb.conf.d/
 
 CMD [ "mysqld" ]
