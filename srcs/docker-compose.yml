@@ -1,5 +1,4 @@
 services:
-
   mariadb:
     build: ./requirements/mariadb
     volumes:
@@ -10,7 +9,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-
+    networks:
+      - inception
+      
   wordpress:
     # image: php:7-fpm
     depends_on:
@@ -24,6 +25,8 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
+    networks:
+      - inception
 
   nginx:
     depends_on:
@@ -39,7 +42,10 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-        
+    networks:
+      - inception
+
+
 volumes:
   DB:
     driver_opts:
@@ -54,23 +60,5 @@ volumes:
       type: 'none'
       o: 'bind'
 
-  #nginx: openssl
-  #rediriger traffic nginx vers wordpress php (port 9000)
-  #lancer nginx avec une option pour quil reste en premier plan
-
-  #wordpress+php: installer tous les php?
-  #changer redir vers database + recup les fichiers de config + COPY 
-
-  #database: setup + recup
-  #script pour les droits dadmin + exclure root? + ajouter un user 
-  #lancer ce script quune fois dans le volume (creer un dossier: sil existe = script deja executé)
-  #recup pid sql et wait ?
-
-  #check les droits en cas derreur
-  #db: possible probleme de socket --> touch + chmod
-
-  #docker exec -it <container> bash
-
-  #expose port sans le : --> pas acces a lexterieur
-  #option dans docker compose pour relancer le container en cas de crash
-  #wordpress depends on database (pas lancer la db avant wp)
+networks:
+  inception:
