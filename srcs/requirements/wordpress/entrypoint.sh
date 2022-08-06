@@ -12,5 +12,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     mv /var/www/wp-config.php /var/www/html/wp-config.php
     echo "done"
 fi
+rm -rf /var/www/wp-config.php
 
 exec "$@"
