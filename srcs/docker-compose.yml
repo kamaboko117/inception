@@ -11,6 +11,8 @@ services:
         window: 120s
     networks:
       - inception
+    env_file:
+      - .env
       
   wordpress:
     # image: php:7-fpm
