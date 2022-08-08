@@ -6,13 +6,9 @@
 #    By: asaboure <asaboure@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/21 14:20:20 by asaboure          #+#    #+#              #
-#    Updated: 2022/08/05 14:24:36 by asaboure         ###   ########.fr        #
+#    Updated: 2022/08/08 16:22:00 by asaboure         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-SRCS	=	
-
-RM		= rm -f
 
 all:
 	cd srcs;\
@@ -21,10 +17,11 @@ all:
 	docker-compose up;
 
 clean:
-	 ${RM}
-
-fclean:	clean
-	${RM} ${NAME}
+	docker stop $$(docker ps -qa);\
+	docker rm $$(docker ps -qa);\
+	docker rmi -f $$(docker images -qa);\
+	docker volume rm $$(docker volume ls -q);\
+	docker network rm $$(docker network ls -q);\
 
 re:		fclean all
 
